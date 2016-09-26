@@ -64,3 +64,57 @@ triton.classifications << [motorboat, bass]
 sun_tracker.classifications << [motorboat, pontoon, catamaran]
 harpoon.classifications << [sailboat, sloop]
 sunfish.classifications << [sailboat, cat_rig]
+
+
+abbotts = Family.create(name: "Abbott", business: "Jabot Cosmetics")
+newman = Family.create(name: "Newman", business: "Newman Enterprises")
+winters = Family.create(name: "Winters", business: "The Abbott - Winters Foundation")
+chancellor = Family.create(name: "Chancellor", business: "Chancellor Industries")
+ashby = Family.create(name: "Ashby", business: "Australian Mob")
+
+jack = Character.create(first_name: "Jack", last_name: "Abbott", description: "Head of the Abbott Family since his father John Abbott died", bio: "https://en.wikipedia.org/wiki/Jack_Abbott_(The_Young_and_the_Restless)#Storylines", alive: true)
+bill = Character.create(first_name: "Billy", last_name: "Abbott", description: "The Black Sheep", bio: "https://en.wikipedia.org/wiki/Billy_Abbott#Storylines", alive: true)
+ashley = Character.create(first_name: "Ashley", last_name: "Abbott", description: "Head Chemist of Jabot Cosmetics", bio: "https://en.wikipedia.org/wiki/Ashley_Abbott#Storylines", alive: true)
+victor = Character.create(first_name: "Victor", last_name: "Newman", description: "Head and Patriarch of the Newman Family and Newman Enterprises", bio: "https://en.wikipedia.org/wiki/Victor_Newman#Storylines", alive: true)
+nikki = Character.create(first_name: "Nikki", last_name: "Newman", description: "The Woman who stands by Victor", bio: "https://en.wikipedia.org/wiki/Nikki_Newman#Storylines", alive: true)
+cane = Character.create(first_name: "Cane",last_name: "Ashby",description: "Runaway Australian - The Character that was too popular to die",bio: "https://en.wikipedia.org/wiki/Cane_Ashby#Storylines" ,alive: true)
+abby = Character.create(first_name: "Abby",last_name: "Rayburn", description: "Warm-hearted but spoiled daughter at the Abbott-Newman crossroads",bio: "https://en.wikipedia.org/wiki/Abby_Newman#Storylines" ,alive: true)
+phyllis = Character.create(first_name: "Phyllis",last_name: "Abbott", description: "Fierce Campaign Manager and Webmistress who goes by the nickname Red",bio: "https://en.wikipedia.org/wiki/Phyllis_Summers#Storylines" ,alive: true)
+nick = Character.create(first_name: "Nicholas",last_name: "Newman", description: "The Good Newman",bio: "https://en.wikipedia.org/wiki/Nicholas_Newman" ,alive: true)
+
+
+CharacterRelationship.create(relationship: "enemies", :character_a => jack, :character_b => victor, status: "on")
+CharacterRelationship.create(relationship: "enemies", :character_a => phyllis, :character_b => victor, status: "on")
+CharacterRelationship.create(relationship: "married", :character_a => victor, :character_b => nikki, status: "on")
+CharacterRelationship.create(relationship: "married", :character_a => phyllis, :character_b => jack, status: "complicated")
+CharacterRelationship.create(relationship: "affair", :character_a => phyllis, :character_b => bill, status: "complicated")
+CharacterRelationship.create(relationship: "married", :character_a => phyllis, :character_b => nick, status: "off")
+CharacterRelationship.create(relationship: "affair", :character_a => nick, :character_b => phyllis, status: "off")
+CharacterRelationship.create(relationship: "half-siblings", :character_a => jack, :character_b => bill, status: "complicated")
+CharacterRelationship.create(relationship: "daughter", :character_a => abby, :character_b => ashley, status: "on")
+CharacterRelationship.create(relationship: "daughter", :character_a => abby, :character_b => victor, status: "on")
+CharacterRelationship.create(relationship: "affair", :character_a => victor, :character_b => ashley, status: "off")
+CharacterRelationship.create(relationship: "affair", :character_a => jack, :character_b => nikki, status: "off")
+CharacterRelationship.create(relationship: "friends", :character_a => jack, :character_b => nikki, status: "on")
+CharacterRelationship.create(relationship: "siblings", :character_a => jack, :character_b => ashley, status: "on")
+CharacterRelationship.create(relationship: "son", :character_a => nick, :character_b => victor, status: "on")
+CharacterRelationship.create(relationship: "son", :character_a => nick, :character_b => nikki, status: "on")
+
+FamilyCharacter.create(character_id: 1, family_id: 1)
+FamilyCharacter.create(character_id: 2, family_id: 1)
+FamilyCharacter.create(character_id: 2, family_id: 4)
+FamilyCharacter.create(character_id: 3, family_id: 1)
+FamilyCharacter.create(character_id: 4, family_id: 2)
+FamilyCharacter.create(character_id: 5, family_id: 2)
+FamilyCharacter.create(character_id: 6, family_id: 3)
+FamilyCharacter.create(character_id: 6, family_id: 4)
+FamilyCharacter.create(character_id: 6, family_id: 5)
+FamilyCharacter.create(character_id: 7, family_id: 1)
+FamilyCharacter.create(character_id: 7, family_id: 2)
+FamilyCharacter.create(character_id: 8, family_id: 1)
+FamilyCharacter.create(character_id: 8, family_id: 2)
+FamilyCharacter.create(character_id: 9, family_id: 1)
+
+# Character.create(first_name: ,last_name:, description: ,bio: ,alive: true)
+# CharacterRelationship.create(relationship: "", :character_a => , :character_b => , status: "on")
+# FamilyCharacter.create(character_id: , family_id: )
